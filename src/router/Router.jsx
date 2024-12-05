@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../Layout/HomeLayout";
+import Login from "../Page/Login";
 
 
 const Router = createBrowserRouter([
@@ -22,6 +23,9 @@ const Router = createBrowserRouter([
             {
                 path:'/myvisaapplication',
                 element: <div> My visa application </div>
+            },{
+                path:'/login',
+                element:<Login></Login>
             },
         ]
     },
