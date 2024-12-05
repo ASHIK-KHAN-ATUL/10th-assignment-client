@@ -9,7 +9,7 @@ function App() {
   return (
     <>
 
-      <h1>Vite + React</h1>
+      <h1>Assignment 10th</h1>
 
     </>
   )
