@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext)
 
     const validatePassword = (password) => {
         const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -18,10 +21,20 @@ const Register = () => {
         const photo = form.get('photo')
         const email = form.get('email')
         const password = form.get('password')
-
         const user = {name, photo, email, password}
-
         console.log(user)
+
+
+
+        // Firebase Auth code
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user)
+            setUser(result.user)
+        })
+        .catch(error => {
+            console.log('Error', error)
+        })
     }
 
     return (

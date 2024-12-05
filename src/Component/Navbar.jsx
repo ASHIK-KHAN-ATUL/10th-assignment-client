@@ -1,8 +1,11 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Navbar = () => {
+
+    const {user, logout} = useContext(AuthContext);
 
     const links = <>
                     <li> <NavLink to="/" >Home</NavLink> </li>
@@ -26,14 +29,31 @@ const Navbar = () => {
                     </div>
                     <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p>
                 </div>
-                <div className="navbar-center hidden  lg:flex pl-10">
+                <div className="navbar-center hidden  lg:flex ">
                     <ul className="menu menu-horizontal  text-sm font-semibold">
                     {links}
                    </ul>
                 </div>
                 <div className='navbar-end'>
-                    <NavLink to={'/login'} className='btn'>Login</NavLink>
-                    <NavLink to={'/register'} className='btn'>register</NavLink>
+                    {
+                        user ? 
+                        <div className='flex items-center'>
+                            <div className='flex items-center'>
+                                <div className='h-12 w-12 xl:w-16 xl:h-16 rounded-full border-2 border-black'>
+                                    <img className='object-cover rounded-full' src={user.photoURL} alt="Profile Pic" />
+                                </div>
+                                <p>{user.displayName}</p>
+                            </div>
+                            <Link onClick={logout} className='btn'>Logout</Link>
+                        </div> 
+                        
+                        :
+
+                    <div className=' flex gap-4'>
+                        <NavLink to={'/login'} className='btn'>Login</NavLink>
+                        <NavLink to={'/register'} className='btn'>register</NavLink>
+                    </div>
+                    }
                 </div>
             </div>
     );

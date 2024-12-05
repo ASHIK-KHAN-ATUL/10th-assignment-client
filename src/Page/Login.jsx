@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
+
+    const {signInUser, setUser, user, signWithSoogle} = useContext(AuthContext);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -10,11 +13,33 @@ const Login = () => {
         const form = new FormData(e.target);
         const email = form.get('email')
         const password = form.get('password')
-
         const user = {email, password}
-
         console.log(user)
+
+
+
+        // Firebase Auth Code
+        signInUser(email, password)
+        .then(result => {
+            console.log(result.user)
+            setUser(result.user)
+        } )
+        .catch(error => {
+            console.log(error.message)
+        })
     }
+
+    const handleGoogleSignIn = () => {
+        signWithSoogle()
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.log('Error', error)
+        })
+    }
+
+    console.log(user)
 
     return (
         <div className="my-10 font-poppins">
@@ -49,9 +74,9 @@ const Login = () => {
 
                     <div className="divider divider-success"></div>
 
-                    <Link  className=" py-4 px-2 rounded-xl flex justify-around items-center bg-[#6cddf1] w-[250px] mx-auto hover:text-white duration-300 ease-linear hover:scale-x-90 ">
+                    <Link onClick={handleGoogleSignIn} className=" py-4 px-2 rounded-xl flex justify-around items-center bg-[#6cddf1] w-[250px] mx-auto hover:text-white duration-300 ease-linear hover:scale-x-90 ">
                             
-                        <p className="font-semibold">Login With Google  </p>
+                        <p  className="font-semibold">Login With Google  </p>
                         <FcGoogle className="text-3xl"></FcGoogle>
                     </Link>
                 </div>
