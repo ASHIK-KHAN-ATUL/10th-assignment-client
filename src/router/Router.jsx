@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../Layout/HomeLayout";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
+import Home from "../Page/Home";
+import AddVisa from "../Page/AddVisa";
 
 
 const Router = createBrowserRouter([
@@ -10,12 +12,16 @@ const Router = createBrowserRouter([
         element: <HomeLayout></HomeLayout>,
         children: [
             {
+                path:'/',
+                element: <Home></Home>
+            },
+            {
                 path:'/allvisa',
                 element: <div>this is All visa </div>
             },
             {
                 path:'/addvisa',
-                element: <div>Add visa </div>
+                element:<AddVisa></AddVisa>
             },
             {
                 path:'/myaddedvisa',
