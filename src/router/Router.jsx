@@ -4,6 +4,7 @@ import Login from "../Page/Login";
 import Register from "../Page/Register";
 import Home from "../Page/Home";
 import AddVisa from "../Page/AddVisa";
+import AllVisa from "../Page/AllVisa";
 
 
 const Router = createBrowserRouter([
@@ -17,11 +18,13 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/allvisa',
-                element: <div>this is All visa </div>
+                element: <AllVisa></AllVisa>,
+                loader: () => fetch('http://localhost:5000/visa')
             },
             {
                 path:'/addvisa',
-                element:<AddVisa></AddVisa>
+                element:<AddVisa></AddVisa>,
+                
             },
             {
                 path:'/myaddedvisa',

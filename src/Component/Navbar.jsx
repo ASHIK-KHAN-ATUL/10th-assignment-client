@@ -8,6 +8,8 @@ const Navbar = () => {
     const {user, logout} = useContext(AuthContext);
     const [isHover, setIsHover] = useState(false);
 
+    console.log(user)
+
     const links = <>
                     <li> <NavLink to="/" >Home</NavLink> </li>
                     <li> <NavLink to="/allvisa" >All Visas</NavLink> </li> 
@@ -52,7 +54,8 @@ const Navbar = () => {
                                         <img src={user.photoURL} className='h-16 w-16 mx-auto rounded-full border-2 border-[#023e8a]'  alt="Profile pic" />
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>Name : {user.displayName}</p>
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>email : {user.email}</p>
-                                        <Link onClick={logout} className='btn btn-error text-white mt-2'>Logout</Link>
+                                        <p className='mt-2 text-[8px] md:text-sm font-medium text-start'>Last Sign In : {user.metadata.lastSignInTime}</p>
+                                        <Link onClick={logout} className='btn btn-error text-white mt-2 hover:scale-x-125 '>Logout</Link>
                                     </div>
                                 </div>
                             )}
