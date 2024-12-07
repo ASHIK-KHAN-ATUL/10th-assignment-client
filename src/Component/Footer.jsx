@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#90e0ef]">
+        <footer className="bg-[#90e0ef] bg-opacity-80">
         <div className="  text-black flex p-10 footer justify-around">
             <nav>
             <h6 className="footer-title">Services</h6>
