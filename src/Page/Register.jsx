@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 
 const Register = () => {
 
-    const {createUser, signWithSoogle} = useContext(AuthContext)
+    const {createUser, signWithSoogle, user, setUser,} = useContext(AuthContext)
 
     const validatePassword = (password) => {
         const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -21,8 +22,8 @@ const Register = () => {
         const photo = form.get('photo')
         const email = form.get('email')
         const password = form.get('password')
-        const user = {name, photo, email, password}
-        console.log(user)
+        const newUser = {name, photo, email, password}
+        console.log(newUser)
 
 
 
@@ -31,20 +32,30 @@ const Register = () => {
         .then(result => {
             console.log(result.user)
             setUser(result.user)
+            toast.success('Login Successfully Done')
         })
         .catch(error => {
             console.log('Error', error)
+            toast.error('Unable to log in. Please try again later')
         })
     }
+    console.log(user);
 
     const handleGoogleSignIn = () =>{
         signWithSoogle()
         .then(result => {
             console.log(result.user)
+            setUser(result.user)
+            toast.success('Login Successfully Done')
         })
         .catch(error => {
             console.log(error)
+            toast.error('Unable to log in. Please try again later')
         })
+    }
+
+    if(user){
+        return <Navigate to={'/'} > </Navigate>
     }
 
 

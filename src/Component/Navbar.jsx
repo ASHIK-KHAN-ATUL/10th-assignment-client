@@ -28,7 +28,7 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"  d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-[#caf0f8] rounded-box z-[1] mt-3 w-52 p-2 shadow" >{links}</ul>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-[#caf0f8] rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
                     </div>
                     <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p>
                 </div>
@@ -41,6 +41,7 @@ const Navbar = () => {
                     {
                         user ? 
                         <div className='flex items-center gap-2 relative cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+                            {/* Profile pic */}
                             <div className='flex items-center'>
                                 <div className='h-12 w-12 xl:w-16 xl:h-16 rounded-full border-2 border-[#00b4d8]'>
                                     <img className='object-cover rounded-full' src={user.photoURL} alt="Profile Pic" />

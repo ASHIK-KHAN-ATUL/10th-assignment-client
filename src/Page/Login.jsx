@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -23,9 +24,11 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             setUser(result.user)
+            toast.success('Login Successfully Done')
         } )
         .catch(error => {
             console.log(error.message)
+            toast.error('Unable to log in. Please try again later')
         })
     }
 
@@ -33,10 +36,16 @@ const Login = () => {
         signWithSoogle()
         .then(result => {
             console.log(result.user)
+            toast.success('Login Successfully Done')
         })
         .catch(error => {
             console.log('Error', error)
+            toast.error('Unable to log in. Please try again later')
         })
+    }
+
+    if(user?.email){
+        return <Navigate to={'/'} ></Navigate>
     }
 
     console.log(user)
