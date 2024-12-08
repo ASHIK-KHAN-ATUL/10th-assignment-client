@@ -6,6 +6,8 @@ import Home from "../Page/Home";
 import AddVisa from "../Page/AddVisa";
 import AllVisa from "../Page/AllVisa";
 import VisaDetails from "../Component/VisaDetails";
+import PrivetRoute from "./PrivetRoute";
+import Error from "../Component/Error";
 
 
 const Router = createBrowserRouter([
@@ -24,20 +26,20 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/addvisa',
-                element:<AddVisa></AddVisa>,
+                element:<PrivetRoute><AddVisa></AddVisa></PrivetRoute>,
                 
             },
             {
                 path:'/myaddedvisa',
-                element: <div>My Added visas </div>
+                element: <PrivetRoute><div>My Added visas </div></PrivetRoute>
             },
             {
                 path:'/myvisaapplication',
-                element: <div> My visa application </div>
+                element: <PrivetRoute><div> My visa application </div></PrivetRoute>
             },
             {
                 path:'/visadetail/:id',
-                element:<VisaDetails></VisaDetails>,
+                element:<PrivetRoute><VisaDetails></VisaDetails></PrivetRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/visa/${params.id}`)
             },
             {
@@ -48,6 +50,10 @@ const Router = createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
+            {
+                path:'*',
+                element: <Error></Error>
+            }
         ]
     },
     {
