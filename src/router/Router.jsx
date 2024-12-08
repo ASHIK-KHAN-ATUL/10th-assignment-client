@@ -5,6 +5,7 @@ import Register from "../Page/Register";
 import Home from "../Page/Home";
 import AddVisa from "../Page/AddVisa";
 import AllVisa from "../Page/AllVisa";
+import VisaDetails from "../Component/VisaDetails";
 
 
 const Router = createBrowserRouter([
@@ -33,6 +34,11 @@ const Router = createBrowserRouter([
             {
                 path:'/myvisaapplication',
                 element: <div> My visa application </div>
+            },
+            {
+                path:'/visadetail/:id',
+                element:<VisaDetails></VisaDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/visa/${params.id}`)
             },
             {
                 path:'/login',
