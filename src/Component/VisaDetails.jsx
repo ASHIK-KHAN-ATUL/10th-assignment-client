@@ -7,18 +7,19 @@ const VisaDetails = () => {
 
     const visa = useLoaderData();
     const { _id, country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method, requireddocuments1, requireddocuments2, requireddocuments3 } = visa;
+    console.log(visa);
 
     return (
         <div>
 
-        <div className='w-[70%] md:w-[60%] mx-auto my-14 bg-[#caf0f8] p-5 rounded-lg flex flex-col gap-5 max-w-[720px]'>
+        <div className='w-[70%] md:w-[60%] mx-auto my-14 bg-[#caf0f8] p-5 rounded-lg flex flex-col gap-5 max-w-[720px] shadow-lg hover:shadow-red-200 shadow-green-200 duration-300'>
             {/* for image */}
             <div className='w-full'>
                 <img className='object-cover mx-auto ' src={country_image} alt="" />
             </div>
 
             {/* for text */}
-            <div className='md:flex justify-between p-5'>
+            <div className='md:flex justify-between p-2'>
                 {/* 1/2 text */}
                 <div className='flex flex-col gap-3 mb-5'>
                     <p className='text-lg lg:text-2xl font-bold'><span className='font-extrabold'>Country Name :</span> {country_name}</p>
@@ -51,7 +52,7 @@ const VisaDetails = () => {
 
             {/* for button */}
             <div className='mx-auto w-[60%]'>
-                <button className="btn border-none w-full   hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">Apply</button>
+                <button className="btn border-none w-full   hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">Apply For The Visa</button>
             </div>
         </div>
 

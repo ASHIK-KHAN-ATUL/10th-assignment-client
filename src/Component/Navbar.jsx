@@ -13,9 +13,17 @@ const Navbar = () => {
     const links = <>
                     <li> <NavLink to="/" >Home</NavLink> </li>
                     <li> <NavLink to="/allvisa" >All Visas</NavLink> </li> 
-                    <li> <NavLink to="/addvisa" >Add Visa</NavLink></li>
-                    <li> <NavLink to="/myaddedvisa" >My Added Visas</NavLink> </li> 
-                    <li> <NavLink to="/myvisaapplication" >My Visa Applications </NavLink> </li> 
+                    {
+                        user?.email? (<li> <NavLink to="/addvisa" >Add Visa</NavLink></li>) : null 
+                    }
+
+                    {
+                        user?.email? (<li> <NavLink to="/myaddedvisa" >My Added Visas</NavLink> </li>) : null
+                    }
+
+                    {
+                        user?.email? (<li> <NavLink to="/myvisaapplication" >My Visa Applications </NavLink> </li>) : null
+                    } 
                 </>
 
     return (

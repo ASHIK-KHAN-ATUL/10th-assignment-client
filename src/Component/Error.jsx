@@ -1,5 +1,6 @@
 import React from 'react';
 import error from '../../src/assets/icons8-error.gif'
+import { Link } from 'react-router-dom';
 
 const Error = () => {
     return (
@@ -10,9 +11,7 @@ const Error = () => {
             It seems the page you're looking for doesn't exist or has been moved.
           </p>
           <img src={error} alt="404 Error" className="w-20 my-8 mx-auto"/>
-          <button
-            onClick={() => navigate('/')}
-            className="btn border-none hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white" > Go to Home</button>
+          <Link to={'/'} className="btn border-none hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white" > Go to Home</Link>
         </div>
         
       </div>

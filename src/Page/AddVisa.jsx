@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const AddVisa = () => {
+
+    const {user} = useContext(AuthContext);
 
     const handleAddVisa = e => {
         e.preventDefault();
@@ -18,8 +22,10 @@ const AddVisa = () => {
         const requireddocuments1 = form.get('requireddocuments1')
         const requireddocuments2 = form.get('requireddocuments2')
         const requireddocuments3 = form.get('requireddocuments3')
+        const userEmail = user.email;
 
-        const newVisa = {country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method,  requireddocuments1, requireddocuments2, requireddocuments3}
+
+        const newVisa = {userEmail, country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method,  requireddocuments1, requireddocuments2, requireddocuments3}
         console.log(newVisa)
 
         // send data in DB
