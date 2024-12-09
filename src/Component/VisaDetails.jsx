@@ -1,13 +1,75 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
 const VisaDetails = () => {
 
+    const {user} = useContext(AuthContext);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen)
+    }
+
+
+    const handleApply = e => {
+        e.preventDefault();
+
+        const form = new FormData(e.target);
+        const userEmail = form.get('email')
+        const firstName = form.get('firstname')
+        const lastName = form.get('lastname')
+        const date = form.get('date')
+        const fee = form.get('fee')
+
+        const country_image = visa.country_image;
+        const country_name = visa.country_name;
+        const visa_type = visa.visa_type;
+        const processingtime = visa.processingtime;
+        const description = visa.description;
+        const age_restriction = visa.age_restriction;
+        const validity = visa.validity;
+        const application_method = visa.application_method;
+        const requireddocuments1 = visa.requireddocuments1;
+        const requireddocuments2 = visa.requireddocuments2;
+        const requireddocuments3 = visa.requireddocuments1;
+
+
+        const applyingVisaDta = {userEmail, firstName, lastName, date, fee ,  country_image, country_name, visa_type, processingtime, description, age_restriction,  validity, application_method, requireddocuments1, requireddocuments2, requireddocuments3 }
+
+        console.log(applyingVisaDta);
+
+        // send data to server
+        fetch('http://localhost:5000/applyvisa', {
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body: JSON.stringify(applyingVisaDta)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                toggleModal();
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Visa Added Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
+
+
     const visa = useLoaderData();
     const { _id, country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method, requireddocuments1, requireddocuments2, requireddocuments3 } = visa;
-    console.log(visa);
+    // console.log(visa);
 
     return (
         <div>
@@ -52,9 +114,53 @@ const VisaDetails = () => {
 
             {/* for button */}
             <div className='mx-auto w-[60%]'>
-                <button className="btn border-none w-full   hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">Apply For The Visa</button>
+                <button onClick={toggleModal} className="btn border-none w-full   hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">Apply For The Visa</button>
             </div>
         </div>
+
+
+        {/* modal */}
+        {isModalOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-[#d8f3dc] rounded-xl p-6 w-[90%] max-w-lg shadow-lg relative">
+                  
+                    <p className="text-2xl font-bold mb-6 text-center text-black ">Applying For Visa</p>
+                    <form onSubmit={handleApply} className="flex flex-col gap-3 w-full">
+
+                        <div className='flex gap-5 w-full items-center'>
+                            <p className='w-[40%] text-lg font-bold'>Email :</p>
+                            <input type="text" name="email" defaultValue={user.email} placeholder='Enter your email' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                        </div>
+
+                        <div className='flex gap-5 w-full items-center'>
+                            <p className='w-[40%] text-lg font-bold'>First Name :</p>
+                            <input type="text" name="firstname"  placeholder='Enter Your First Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                        </div>
+
+                        <div className='flex gap-5 w-full items-center'>
+                            <p className='w-[40%] text-lg font-bold'>Last Name :</p>
+                            <input type="text" name="lastname"  placeholder='Enter Your Last Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                        </div>
+
+                        <div className='flex gap-5 w-full items-center'>
+                            <p className='w-[40%] text-lg font-bold'>Appied Date :</p>
+                            <input type="text" name="date" defaultValue={new Date().toISOString().split("T")[0]} placeholder='' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                        </div>
+
+                        <div className='flex gap-5 w-full items-center'>
+                            <p className='w-[40%] text-lg font-bold'>Fee :</p>
+                            <input type="text" name="fee" defaultValue={fee} placeholder='Enter Visa Fee' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                        </div>
+                        <div className="mt-6 text-center">
+                        <button  type='submit'
+                            className="btn w-[80%] text-black hover:border-none bg-[#bbd0ff] hover:bg-[#90e0ef] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white ">Apply</button>
+                    </div>
+                       
+                        
+                    </form>
+                    
+                </div>
+            </div>) }
 
         </div>
     );

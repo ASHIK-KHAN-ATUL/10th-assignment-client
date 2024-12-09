@@ -9,6 +9,7 @@ import VisaDetails from "../Component/VisaDetails";
 import PrivetRoute from "./PrivetRoute";
 import Error from "../Component/Error";
 import MyAddedVisa from "../Page/MyAddedVisa";
+import MyVisaApplication from "../Page/MyVisaApplication";
 
 
 const Router = createBrowserRouter([
@@ -36,7 +37,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/myvisaapplication',
-                element: <PrivetRoute><div> My visa application </div></PrivetRoute>
+                element: <PrivetRoute><MyVisaApplication></MyVisaApplication></PrivetRoute>,
             },
             {
                 path:'/visadetail/:id',
