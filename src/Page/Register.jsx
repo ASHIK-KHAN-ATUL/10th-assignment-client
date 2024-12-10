@@ -23,33 +23,33 @@ const Register = () => {
         const email = form.get('email')
         const password = form.get('password')
         const newUser = {name, photo, email, password}
-        console.log(newUser)
+        // console.log(newUser)
 
 
 
         // Firebase Auth code
         createUser(email, password)
         .then(result => {
-            console.log(result.user)
+            // console.log(result.user)
             setUser(result.user)
             toast.success('Login Successfully Done')
         })
         .catch(error => {
-            console.log('Error', error)
+            // console.log('Error', error)
             toast.error('Unable to log in. Please try again later')
         })
     }
-    console.log(user);
+    // console.log(user);
 
     const handleGoogleSignIn = () =>{
         signWithSoogle()
         .then(result => {
-            console.log(result.user)
+            // console.log(result.user)
             setUser(result.user)
             toast.success('Login Successfully Done')
         })
         .catch(error => {
-            console.log(error)
+            // console.log(error)
             toast.error('Unable to log in. Please try again later')
         })
     }

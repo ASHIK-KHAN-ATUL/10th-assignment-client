@@ -8,7 +8,7 @@ const Navbar = () => {
     const {user, logout} = useContext(AuthContext);
     const [isHover, setIsHover] = useState(false);
 
-    console.log(user)
+    // console.log(user)
 
     const links = <>
                     <li> <NavLink to="/" >Home</NavLink> </li>

@@ -7,7 +7,7 @@ const LatestVisaSection = () => {
 
     const [visas, setVisas] = useState([]);
     useEffect ( () => {
-        fetch('http://localhost:5000/latesvisas')
+        fetch('https://10th-assignment-server-ruddy.vercel.app/latesvisas')
         .then(res => res.json())
         .then(data => {
             // console.log(data)

@@ -17,10 +17,10 @@ const ReviewSection = () => {
         const name  = user.displayName
 
         const reviewData = {ratingNumber, comment, photo, name}
-        console.log(reviewData)
+        // console.log(reviewData)
 
         // send to DB
-        fetch('http://localhost:5000/review', {
+        fetch('https://10th-assignment-server-ruddy.vercel.app/review', {
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -29,7 +29,7 @@ const ReviewSection = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 e.target.reset();
                 Swal.fire({

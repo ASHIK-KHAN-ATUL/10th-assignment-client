@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
             {
                 path:'/allvisa',
                 element: <AllVisa></AllVisa>,
-                loader: () => fetch('http://localhost:5000/visa')
+                loader: () => fetch('https://10th-assignment-server-ruddy.vercel.app/visa')
             },
             {
                 path:'/addvisa',
@@ -42,7 +42,7 @@ const Router = createBrowserRouter([
             {
                 path:'/visadetail/:id',
                 element:<PrivetRoute><VisaDetails></VisaDetails></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/visa/${params.id}`)
+                loader: ({params}) => fetch(`https://10th-assignment-server-ruddy.vercel.app/visa/${params.id}`)
             },
             {
                 path:'/login',

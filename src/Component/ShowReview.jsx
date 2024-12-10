@@ -9,10 +9,10 @@ const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://10th-assignment-server-ruddy.vercel.app/review')
           .then(res => res.json())
           .then(data => {
-            console.log('Fetched reviews:', data); 
+            // console.log('Fetched reviews:', data); 
             setReviews(data);
           });
       }, []);
@@ -28,7 +28,7 @@ const ShowReview = () => {
         pauseOnHover: true,    
       };
 
-      console.log(reviews)
+    //   console.log(reviews)
 
     return (
         <div className="review-slider-container py-10 w-[70%] mx-auto">

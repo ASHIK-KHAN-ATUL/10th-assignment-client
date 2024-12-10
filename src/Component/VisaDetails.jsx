@@ -40,10 +40,10 @@ const VisaDetails = () => {
 
         const applyingVisaDta = {userEmail, firstName, lastName, date, fee ,  country_image, country_name, visa_type, processingtime, description, age_restriction,  validity, application_method, requireddocuments1, requireddocuments2, requireddocuments3 }
 
-        console.log(applyingVisaDta);
+        // console.log(applyingVisaDta);
 
         // send data to server
-        fetch('http://localhost:5000/applyvisa', {
+        fetch('https://10th-assignment-server-ruddy.vercel.app/applyvisa', {
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -52,7 +52,7 @@ const VisaDetails = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 toggleModal();
                 Swal.fire({

@@ -26,10 +26,10 @@ const AddVisa = () => {
 
 
         const newVisa = {userEmail, country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method,  requireddocuments1, requireddocuments2, requireddocuments3}
-        console.log(newVisa)
+        // console.log(newVisa)
 
         // send data in DB
-        fetch('http://localhost:5000/visa', {
+        fetch('https://10th-assignment-server-ruddy.vercel.app/visa', {
             method:"POST",
             headers:{
                 "content-type":"application/json"
@@ -38,7 +38,7 @@ const AddVisa = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 Swal.fire({
                     position: "center",

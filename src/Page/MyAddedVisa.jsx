@@ -21,7 +21,7 @@ const MyAddedVisa = () => {
   }
 
   const handleDelete = (visaId) => {
-    console.log(visaId);
+    // console.log(visaId);
     Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -34,12 +34,12 @@ const MyAddedVisa = () => {
         if (result.isConfirmed) {
         //   
 
-        fetch(`http://localhost:5000/visa/${visaId}`, {
+        fetch(`https://10th-assignment-server-ruddy.vercel.app/visa/${visaId}`, {
             method:"DELETE",
         })
         .then(res => res.json())
         .then( data => {
-            console.log(data);
+            // console.log(data);
             if(data.deletedCount > 0){
                 Swal.fire({
                         title: "Deleted!",
@@ -51,7 +51,7 @@ const MyAddedVisa = () => {
             }
         })
 
-        console.log('Deleete confirm')
+        // console.log('Deleete confirm')
         }
       });
   }
@@ -76,10 +76,10 @@ const MyAddedVisa = () => {
 
 
     const updatedVisa = {userEmail, country_image, country_name, visa_type, processingtime, description, age_restriction, fee, validity, application_method,  requireddocuments1, requireddocuments2, requireddocuments3}
-    console.log(updatedVisa)
+    // console.log(updatedVisa)
 
     // send data in DB
-    fetch(`http://localhost:5000/visa/${selectedVisa._id}`, {
+    fetch(`https://10th-assignment-server-ruddy.vercel.app/visa/${selectedVisa._id}`, {
         method:"PUT",
         headers:{
             "content-type":"application/json"
@@ -88,7 +88,7 @@ const MyAddedVisa = () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.matchedCount){
             setIsModalOpen(false);
             Swal.fire({
@@ -106,7 +106,7 @@ const MyAddedVisa = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/visa/myaddedvisa/${userEmail}`)
+    fetch(`https://10th-assignment-server-ruddy.vercel.app/visa/myaddedvisa/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setVisas(data);

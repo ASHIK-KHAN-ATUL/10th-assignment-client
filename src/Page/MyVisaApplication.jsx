@@ -9,7 +9,7 @@ const MyVisaApplication = () => {
     const userEmail = user.email;
 
     const handleCancel = (applyVisaId) => {
-        console.log(applyVisaId)
+        // console.log(applyVisaId)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -21,12 +21,12 @@ const MyVisaApplication = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/applyvisa/${applyVisaId}`,{
+                fetch(`https://10th-assignment-server-ruddy.vercel.app/applyvisa/${applyVisaId}`,{
                     method:"DELETE"
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     if(data.deletedCount > 0){
                             Swal.fire({
                             title: "Deleted!",
@@ -37,17 +37,17 @@ const MyVisaApplication = () => {
                 })
                 const remainingApplyVisa = appliedVisa.filter(applyVisa => applyVisa._id !== applyVisaId);
                 setAppliedVisa(remainingApplyVisa);
-                
-            console.log('Delete confirm')
+
+            // console.log('Delete confirm')
             }
           });
     }
 
     useEffect( () => {
-        fetch(`http://localhost:5000/applyvisa/${userEmail}`)
+        fetch(`https://10th-assignment-server-ruddy.vercel.app/applyvisa/${userEmail}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             setAppliedVisa(data)
         })
     } ,[])

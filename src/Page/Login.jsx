@@ -15,19 +15,19 @@ const Login = () => {
         const email = form.get('email')
         const password = form.get('password')
         const user = {email, password}
-        console.log(user)
+        // console.log(user)
 
 
 
         // Firebase Auth Code
         signInUser(email, password)
         .then(result => {
-            console.log(result.user)
+            // console.log(result.user)
             setUser(result.user)
             toast.success('Login Successfully Done')
         } )
         .catch(error => {
-            console.log(error.message)
+            // console.log(error.message)
             toast.error('Unable to log in. Please try again later')
         })
     }
@@ -35,11 +35,11 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signWithSoogle()
         .then(result => {
-            console.log(result.user)
+            // console.log(result.user)
             toast.success('Login Successfully Done')
         })
         .catch(error => {
-            console.log('Error', error)
+            // console.log('Error', error)
             toast.error('Unable to log in. Please try again later')
         })
     }
@@ -48,7 +48,7 @@ const Login = () => {
         return <Navigate to={'/'} ></Navigate>
     }
 
-    console.log(user)
+    // console.log(user)
 
     return (
         <div className="my-10  ">
