@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
     return (
         <footer className="bg-[#90e0ef] bg-opacity-80">
+          <h1 className="py-5 text-center  text-2xl font-bold">Visa Navigator</h1>
         <div className="  text-black flex p-10 footer justify-around">
             <nav>
             <h6 className="footer-title">Services</h6>
@@ -52,7 +53,7 @@ const Footer = () => {
 
         <footer className="footer footer-center  text-[#023e8a] p-4">
             <aside>
-              <p>Copyright © {new Date().getFullYear()} - All right reserved by Lingo Bingo</p>
+              <p>Copyright © {new Date().getFullYear()} - All right reserved by Visa Navigator</p>
             </aside>
         </footer>
     </footer>
