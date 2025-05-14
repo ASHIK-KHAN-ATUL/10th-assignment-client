@@ -1,16 +1,18 @@
 import React from 'react';
 
 const HowItWorks = () => {
+
+
   const steps = [
     {
       title: 'Step 1: Create an Account',
       description: 'Sign up with your email to access the visa application platform.',
-      icon: '/src/assets/Create-account.png',
+      icon: 'https://img.icons8.com/?size=100&id=95043&format=png&color=000000',
     },
     {
       title: 'Step 2: Explore Visa Options',
       description: 'Browse through various visa options and choose the one that suits you best.',
-      icon: '/src/assets/icons8-world.gif',
+      icon: '/src/assets/icons8-explore-100.png',
     },
     {
       title: 'Step 3: Apply for Visa',
@@ -31,10 +33,10 @@ const HowItWorks = () => {
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="step-card bg-[#b7e4c7] hover:bg-[#74c69d] duration-500 cursor-pointer  p-6 rounded-lg text-center shadow-xl shadow-[#cce9d6] hover:shadow-red-200"
+            className="bg-purple-500/10  border border-purple-400  duration-500 cursor-pointer  p-6 rounded-lg text-center shadow-xl"
           >
             <div className='flex justify-center'>
-                <img className='h-14' src={step.icon} alt="" />
+                <img className='h-14 bg-transparent'  src={step.icon} alt="" />
             </div>
             <h3 className="text-xl font-bold mt-3">{step.title}</h3>
             <p className="text-sm font-semibold text-gray-600 mt-2">{step.description}</p>

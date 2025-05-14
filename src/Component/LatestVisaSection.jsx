@@ -23,17 +23,16 @@ const LatestVisaSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
                 {
                     visas.map(visa => (
-                        <div key={visa._id} className=" bg-[#f8edeb] bg-opacity-50  shadow-xl shadow-[#b7e4c7] hover:shadow-red-200  w-80 mx-auto scale-90 hover:scale-95 duration-300 flex flex-col  cursor-pointer   " >
+                        <div key={visa._id} className=" bg-purple-500/10  border border-purple-400  shadow-xl rounded-md w-80 mx-auto  flex flex-col justify-evenly" >
                             <img src={visa.country_image} alt={visa.country_name} className="h-40 w-full object-cover rounded-md" />
                             <div className="p-4 font-semibold flex flex-col space-y-3 ">
-                                <h3 className="text-lg font-bold">Name : {visa.country_name}</h3> 
+                                <h3 className="text-base font-bold">Name : {visa.country_name}</h3> 
                                 <p className="text-sm">Visa Type : {visa.visa_type}</p>
                                 <p className="text-sm"> Processing Time: {visa.processingtime} </p>
                                 <p className="text-sm">Fee: {visa.fee} BDT</p>
                                 <p className="text-sm"> Validity: {visa.validity} </p>
-                                <p className="text-sm"> Application Method: {visa.application_method} </p>
                             </div>
-                            <Link to={`/visadetail/${visa._id}`} className="btn border-none w-[60%] mx-auto my-5 hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">See Details!</Link>
+                            <Link to={`/visadetail/${visa._id}`} className="btn btn-outline btn-sm border-purple-500 hover:bg-purple-500 hover:border-none hover:text-white duration-500 rounded-none w-1/2 mx-auto mb-2 font-semibold text-white">See Details!</Link>
                         </div>
                     ) )
                 }

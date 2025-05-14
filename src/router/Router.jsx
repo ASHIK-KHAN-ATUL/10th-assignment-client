@@ -57,10 +57,6 @@ const Router = createBrowserRouter([
                 element: <Error></Error>
             }
         ]
-    },
-    {
-        path:'*',
-        element: <div>Error</div>
     }
 
 ])

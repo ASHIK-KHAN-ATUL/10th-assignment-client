@@ -8,8 +8,6 @@ const Navbar = () => {
     const {user, logout} = useContext(AuthContext);
     const [isHover, setIsHover] = useState(false);
 
-    // console.log(user)
-
     const links = <>
                     <li> <NavLink to="/" >Home</NavLink> </li>
                     <li> <NavLink to="/allvisa" >All Visas</NavLink> </li> 
@@ -20,7 +18,7 @@ const Navbar = () => {
                 </>
 
     return (
-            <div className="navbar bg-[#caf0f8] bg-opacity-30  ">
+            <div className="navbar sticky top-0 z-50 bg-black border-b border-purple-500  lg:px-10">
 
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -29,9 +27,10 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"  d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-[#caf0f8] rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-black/90 border border-purple-500 text-purple-500 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
                     </div>
-                    <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p>
+                    {/* <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p> */}
+                    <img src="../../public/icons8-visa-500.png" className='w-12' alt="" />
                 </div>
                 <div className="navbar-center hidden  lg:flex ">
                     <ul className="menu menu-horizontal  text-sm font-semibold">
@@ -51,7 +50,7 @@ const Navbar = () => {
                             
 
                             {isHover && (
-                                <div className='absolute right-0 top-12 bg-[#caf0f8] shadow-md rounded-lg w-56 md:w-80 p-3 z-10'>
+                                <div className='absolute right-0 top-12 bg-black/90 border border-purple-500 text-purple-500 shadow-md rounded-lg w-56 md:w-80 p-3 z-10'>
                                     <div className='text-center mb-3'>
                                         <img src={user.photoURL} className='h-16 w-16 mx-auto rounded-full border-2 border-[#023e8a]'  alt="Profile pic" />
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>Name : {user.displayName}</p>
