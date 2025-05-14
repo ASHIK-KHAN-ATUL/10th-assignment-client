@@ -74,14 +74,14 @@ const VisaDetails = () => {
     return (
         <div>
 
-        <div className='w-[70%] md:w-[60%] mx-auto my-14 bg-[#caf0f8] p-5 rounded-lg flex flex-col gap-5 max-w-[720px] shadow-lg hover:shadow-red-200 shadow-green-200 duration-300'>
+        <div className='  bg-purple-500/10  border border-purple-400  w-[70%] md:w-[60%] mx-auto my-14 p-5 rounded-lg flex flex-col gap-5 max-w-[720px] shadow-lgduration-300'>
             {/* for image */}
             <div className='w-full'>
                 <img className='object-cover mx-auto ' src={country_image} alt="" />
             </div>
 
             {/* for text */}
-            <div className='md:flex justify-between p-2'>
+            <div className='md:flex justify-between'>
                 {/* 1/2 text */}
                 <div className='flex flex-col gap-3 mb-5'>
                     <p className='text-lg lg:text-2xl font-bold'><span className='font-extrabold'>Country Name :</span> {country_name}</p>
@@ -113,18 +113,18 @@ const VisaDetails = () => {
             </div>
 
             {/* for button */}
-            <div className='mx-auto w-[60%]'>
-                <button onClick={toggleModal} className="btn border-none w-full   hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white">Apply For The Visa</button>
+            <div className='mx-auto'>
+                <button onClick={toggleModal} className="btn btn-outline btn-sm border-purple-500 hover:bg-purple-500 hover:border-none hover:text-white duration-500 rounded-none  mx-auto mb-2 font-semibold text-white">Apply For The Visa</button>
             </div>
         </div>
 
 
         {/* modal */}
         {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-[#d8f3dc] rounded-xl p-6 w-[90%] max-w-lg shadow-lg relative">
+            <div className="fixed inset-0 bg-purple-500/20 flex items-center justify-center z-50">
+                <div className="bg-black border border-purple-500 rounded-xl text-white p-6 w-[90%] max-w-lg shadow-lg relative">
                   
-                    <p className="text-2xl font-bold mb-6 text-center text-black ">Applying For Visa</p>
+                    <p className="text-2xl font-bold mb-6 text-center text-purple-500 ">Applying For Visa</p>
                     <form onSubmit={handleApply} className="flex flex-col gap-3 w-full">
 
                         <div className='flex gap-5 w-full items-center'>
@@ -134,12 +134,12 @@ const VisaDetails = () => {
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>First Name :</p>
-                            <input type="text" name="firstname"  placeholder='Enter Your First Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                            <input type="text" name="firstname"  placeholder='Enter Your First Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' required />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>Last Name :</p>
-                            <input type="text" name="lastname"  placeholder='Enter Your Last Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                            <input type="text" name="lastname"  placeholder='Enter Your Last Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' required />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
@@ -151,10 +151,16 @@ const VisaDetails = () => {
                             <p className='w-[40%] text-lg font-bold'>Fee :</p>
                             <input type="text" name="fee" defaultValue={fee} placeholder='Enter Visa Fee' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
                         </div>
-                        <div className="mt-6 text-center">
-                        <button  type='submit'
-                            className="btn w-[80%] text-black hover:border-none bg-[#bbd0ff] hover:bg-[#90e0ef] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white ">Apply</button>
-                    </div>
+                        <div className="mt-6 flex gap-10 justify-center">
+                            <button  type='submit'
+                                className="btn btn-outline btn-success rounded-none btn-sm w-[30%]">Apply
+                            </button>
+                            <button  
+                                onClick={toggleModal}
+                                type=''
+                                className="btn btn-outline btn-error rounded-none btn-sm w-[30%]">Cancel
+                            </button>
+                        </div>
                        
                         
                     </form>

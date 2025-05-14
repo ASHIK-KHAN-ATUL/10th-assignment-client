@@ -20,7 +20,7 @@ const LatestVisaSection = () => {
     return (
         <div className="my-10 mx-auto">
             <h2 className="text-center text-3xl font-bold mb-5">Latest Visas</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 ">
                 {
                     visas.map(visa => (
                         <div key={visa._id} className=" bg-purple-500/10  border border-purple-400  shadow-xl rounded-md w-80 mx-auto  flex flex-col justify-evenly" >
@@ -37,9 +37,9 @@ const LatestVisaSection = () => {
                     ) )
                 }
             </div>
-            <div className="text-center mt-8">
+            <div className="text-center mt-10">
                 <button
-                    className='btn border-none hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] hover:shadow-lg hover:shadow-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white'
+                    className='btn bg-[#6cddf1] rounded-none hover:bg-none hover:border-purple-500 transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold text-white'
                     onClick={() => navigate('/allvisa')}
                 >
                     See All Visas
