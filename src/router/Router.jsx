@@ -10,6 +10,7 @@ import PrivetRoute from "./PrivetRoute";
 import Error from "../Component/Error";
 import MyAddedVisa from "../Page/MyAddedVisa";
 import MyVisaApplication from "../Page/MyVisaApplication";
+import ReviewSection from "../Component/ReviewSection";
 
 
 const Router = createBrowserRouter([
@@ -55,6 +56,10 @@ const Router = createBrowserRouter([
             {
                 path:'*',
                 element: <Error></Error>
+            },
+            {
+                path:'/giveReview',
+                element: <ReviewSection></ReviewSection>
             }
         ]
     }

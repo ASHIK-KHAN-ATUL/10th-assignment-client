@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const VisaDetails = () => {
 
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const toggleModal = () => {
@@ -62,6 +63,7 @@ const VisaDetails = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                navigate('/giveReview')
             }
         })
     }

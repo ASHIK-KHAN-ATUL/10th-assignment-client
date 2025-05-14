@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const ReviewSection = () => {
 
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubbmitReview = e => {
         e.preventDefault();
@@ -39,26 +41,27 @@ const ReviewSection = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                navigate('/')
             }
         })
     }
 
 
   return (
-    <div>
+    <div className="h-screen flex justify-center items-center">
 
       {/* Review Form */}
-      <div className="review-form bg-[#caf0f8] shadow-md p-6 rounded-lg w-full max-w-lg mx-auto">
+      <div className="review-form bg-purple-500/20 border border-purple-500 shadow-md p-6  w-full max-w-lg mx-auto rounded-none">
 
-        <h3 className="text-xl font-semibold mb-4">Leave Your Review</h3>
+        <h3 className="text-xl font-semibold mb-10 text-center">Leave Your Review</h3>
 
         <form onSubmit={handleSubbmitReview}  className="space-y-4">
 
-          <input type="number" name="rating" placeholder="Enter a number (0-10)" className="w-full p-2 text-lg font-semibold border rounded-lg bg-[#ecf8f8] " min="0" max="10" required />
+          <input type="number" name="rating" placeholder="Enter a number (0-10)" className="w-full p-2 text-lg font-semibold border border-purple-500   bg-transparent rounded-none " min="0" max="10" required />
 
-          <textarea name="comment" placeholder="Write your review here..."      className="w-full p-2 text-lg font-semibold border rounded-lg bg-[#ecf8f8] " rows="4" required ></textarea>
+          <textarea name="comment" placeholder="Write your review here..."      className="w-full p-2 text-lg font-semibold border border-purple-500 bg-transparent rounded-none " rows="4" required ></textarea>
 
-          <button type="submit" className="btn border-none w-full hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white" > Submit Review </button>
+          <button type="submit" className="btn btn-outline btn-success rounded-none btn-sm w-full" > Submit Review </button>
 
         </form>
       </div>
