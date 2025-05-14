@@ -27,7 +27,7 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"  d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-black/90 border border-purple-500 text-purple-500 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-black border border-purple-500 text-purple-500 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
                     </div>
                     {/* <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p> */}
                     <img src="../../public/icons8-visa-500.png" className='w-12' alt="" />
@@ -43,7 +43,7 @@ const Navbar = () => {
                         <div className='flex items-center gap-2 relative cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                             {/* Profile pic */}
                             <div className='flex items-center'>
-                                <div className='h-12 w-12 xl:w-16 xl:h-16 rounded-full border-2 border-[#00b4d8]'>
+                                <div className='h-12 w-12 xl:w-16 xl:h-16 rounded-full border-2 border-purple-500'>
                                     <img className='object-cover rounded-full' src={user.photoURL} alt="Profile Pic" />
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ const Navbar = () => {
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>Name : {user.displayName}</p>
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>email : {user.email}</p>
                                         <p className='mt-2 text-[8px] md:text-sm font-medium text-start'>Last Sign In : {user.metadata.lastSignInTime}</p>
-                                        <Link onClick={logout} className='btn btn-error text-white mt-2 hover:scale-x-125 '>Logout</Link>
+                                        <Link onClick={logout} className='btn btn-outline rounded-none btn-error text-white mt-2 hover:scale-x-125 '>Logout</Link>
                                     </div>
                                 </div>
                             )}

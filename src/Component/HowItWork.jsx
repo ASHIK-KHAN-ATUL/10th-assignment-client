@@ -39,7 +39,7 @@ const HowItWorks = () => {
                 <img className='h-14 bg-transparent'  src={step.icon} alt="" />
             </div>
             <h3 className="text-xl font-bold mt-3">{step.title}</h3>
-            <p className="text-sm font-semibold text-gray-600 mt-2">{step.description}</p>
+            <p className="text-sm font-semibold text-purple-200 mt-2">{step.description}</p>
           </div>
         ))}
       </div>

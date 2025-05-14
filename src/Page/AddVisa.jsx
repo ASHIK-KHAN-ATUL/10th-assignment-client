@@ -52,55 +52,55 @@ const AddVisa = () => {
     }
 
     return (
-        <div className="bg-[#caf0f8] ">
-            <h1 className="text-center font-bold text-2xl pt-10 text-[#52b788]">Add New Visa</h1>
+        <div className="bg-purple-500/10 my-32 mx-[5%] border border-purple-500">
+            <h1 className="text-center font-bold text-3xl pt-10 text-purple-500">Add New Visa</h1>
             <form onSubmit={handleAddVisa}  className="card-body p-10 font-semibold">
 
-                <div className="lg:grid grid-cols-2 gap-10 ">
+                <div className="flex flex-col gap-5 lg:grid grid-cols-2 text-white">
 
                     {/* Country Image */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Country Image</span>
+                            <span className=" text-xl font-bold">Country Image</span>
                         </label>
-                        <input name="countryimage" type="text" placeholder="Country image" className="input input-bordered" required />
+                        <input name="countryimage" type="text" placeholder="Country image" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
                     {/* Country Name */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Country Name</span>
+                            <span className=" text-xl font-bold">Country Name</span>
                         </label>
-                        <input name="countryname" type="text" placeholder="Country name" className="input input-bordered"  />
+                        <input name="countryname" type="text" placeholder="Country name" className="border border-purple-500   bg-transparent rounded-none p-2"  />
                     </div>
 
                     {/* Visa Type */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Visa Type</span>
+                            <span className=" text-xl font-bold">Visa Type</span>
                         </label>
-                        <select name="visatype" id="" className="p-3 rounded-lg border-2 ">
-                            <option value="" disabled selected  >Select Visa Type</option>
-                            <option value="Tourist">Tourist</option>
-                            <option value="Student">Student</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Business">Business</option>
-                            <option value="Work">Work</option>
+                        <select name="visatype" id="" className="p-2 border border-purple-500  bg-transparent rounded-none">
+                            <option className="text-black bg-purple-500/20"  value="" disabled selected  >Select Visa Type</option>
+                            <option className="text-black bg-purple-500/20" value="Tourist">Tourist</option>
+                            <option className="text-black bg-purple-500/20"  value="Student">Student</option>
+                            <option className="text-black bg-purple-500/20"  value="Medical">Medical</option>
+                            <option className="text-black bg-purple-500/20"  value="Business">Business</option>
+                            <option className="text-black bg-purple-500/20"  value="Work">Work</option>
                         </select>
                     </div>
 
                     {/* Processing time */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Processing Time</span>
+                            <span className=" text-xl font-bold">Processing Time</span>
                         </label>
-                        <input name="processingtime" type="text" placeholder="Processing time" className="input input-bordered" required />
+                        <input name="processingtime" type="text" placeholder="Processing time" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
                     {/* Requarments Document */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Required Documents</span>
+                            <span className=" text-xl font-bold">Required Documents</span>
                         </label>
                         <div className="flex flex-col gap-2">
                             <label className="flex items-center gap-2 cursor-pointer">
@@ -136,43 +136,43 @@ const AddVisa = () => {
                     {/* Description  */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Description</span>
+                            <span className=" text-xl font-bold">Description</span>
                         </label>
-                        <input name="description" type="text" placeholder="Description" className="input input-bordered" required />
+                        <input name="description" type="text" placeholder="Description" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
                     {/* Age restriction  */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Age Restriction</span>
+                            <span className=" text-xl font-bold">Age Restriction</span>
                         </label>
-                        <input name="agerestriction" type="number" placeholder="Minimum Age" className="input input-bordered" required />
+                        <input name="agerestriction" type="number" placeholder="Minimum Age" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
                     {/* Fee */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Fee</span>
+                            <span className=" text-xl font-bold">Fee</span>
                         </label>
-                        <input name="fee" type="number" placeholder="Fee" className="input input-bordered" required />
+                        <input name="fee" type="number" placeholder="Fee" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
 
                     {/* Validity  */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Validity</span>
+                            <span className=" text-xl font-bold">Validity</span>
                         </label>
-                        <input name="validity" type="text" placeholder="Validity (e.g., 6 months)" className="input input-bordered" required />
+                        <input name="validity" type="text" placeholder="Validity (e.g., 6 months)" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
 
                     {/* Application Method */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-bold">Application Method</span>
+                            <span className=" text-xl font-bold">Application Method</span>
                         </label>
-                        <input name="applicationmethod" type="text"  placeholder="Explain how to apply" className="input input-bordered" required />
+                        <input name="applicationmethod" type="text"  placeholder="Explain how to apply" className="border border-purple-500   bg-transparent rounded-none p-2" required />
                     </div>
 
 
@@ -180,7 +180,7 @@ const AddVisa = () => {
                 </div>
                     
                 <div className="form-control mt-6">
-                    <button className="w-1/2 lg:w-1/3 mx-auto btn border-none hover:border-none bg-[#6cddf1] hover:bg-[#95d5b2] transition-all duration-300 ease-in-out transform hover:scale-90 font-semibold hover:text-white">Add Visa</button>
+                    <button className="btn btn-outline btn-success rounded-none mx-auto w-1/2  ">Add Visa</button>
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className=" bg-black border-t border-purple-500">
+        <footer className=" bg-black border-t border-purple-500 ">
         <div className="  text-purple-500 flex p-10 footer justify-around">
             <nav>
             <h6 className="footer-title">Services</h6>

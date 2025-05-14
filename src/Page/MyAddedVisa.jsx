@@ -132,7 +132,7 @@ const MyAddedVisa = () => {
         {visas.map((visa) => (
           <div
             key={visa._id}
-            className=" bg-[#f8edeb] bg-opacity-50  shadow-xl shadow-[#b7e4c7] hover:shadow-red-200  w-80 mx-auto scale-90  duration-300 flex flex-col  cursor-pointer   "
+            className=" bg-purple-500/10  border border-purple-400  shadow-xl rounded-md w-80 mx-auto  flex flex-col justify-evenly "
           >
             <img
               src={visa.country_image}
@@ -142,24 +142,17 @@ const MyAddedVisa = () => {
             <div className="p-4 font-semibold flex flex-col space-y-3 ">
               <h3 className="text-lg font-bold">Name : {visa.country_name}</h3>
               <p className="text-sm">Visa Type : {visa.visa_type}</p>
-              <p className="text-sm">
-                {" "}
-                Processing Time: {visa.processingtime}{" "}
-              </p>
+              <p className="text-sm">   Processing Time: {visa.processingtime} </p>
               <p className="text-sm">Fee: {visa.fee} BDT</p>
               <p className="text-sm"> Validity: {visa.validity} </p>
-              <p className="text-sm">
-                {" "}
-                Application Method: {visa.application_method}{" "}
-              </p>
             </div>
 
             {/* for btn */}
-            <div className=" flex mx-[5%] gap-5 justify-between">
+            <div className=" flex gap-5 justify-evenly mb-3">
 
-              <button onClick={ () => handleModalOpen(visa)} className="btn border-none w-[40%]  my-5 hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white" > Update </button>
+              <button onClick={ () => handleModalOpen(visa)} className="btn btn-outline btn-success rounded-none btn-sm w-[40%]" > Update </button>
 
-              <button onClick={() => handleDelete(visa._id)} className="btn border-none w-[40%]  my-5 hover:border-none bg-[#ff2f2f] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold text-white hover:text-black"> Delete</button>
+              <button onClick={() => handleDelete(visa._id)} className="btn btn-outline btn-error rounded-none btn-sm w-[40%]"> Delete</button>
 
             </div>
 
@@ -168,28 +161,28 @@ const MyAddedVisa = () => {
       </div>
       :
       <div>
-        <h2 className="flex justify-center items-center my-[25%] text-3xl text-red-300 font-bold">The visa hasn't been added yet.</h2>
+        <h2 className="flex justify-center items-center my-[25%] text-3xl text-red-500 font-bold">The visa hasn't been added yet.</h2>
       </div>
 
       }
 
 
                         {/* Modal */}
-                        {isModalOpen && (
-              <div className="absolute inset-0 flex  mx-[5%] top-10 sm:top-20 rounded-xl items-center justify-center bg-black bg-opacity-10 z-50 ">
-                <div className="relative top-96 sm:top-44 lg:top-24 bg-sky-200   rounded-lg shadow-lg w-11/12 lg:w-2/3 xl:w-1/2 p-6 overflow-y-auto">
+              {isModalOpen && (
+              <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center overflow-y-auto ">
+                <div className=" bg-black  border border-purple-500 w-[90%] max-h-[90vh] overflow-y-auto rounded-lg shadow-lg py-10 px-5 mt-10">
                   {/* Modal Header */}
-                  <h1 className="text-center font-bold text-2xl pt-4 text-[#52b788]">
-                    Update Visa
+                  <h1 className="text-center font-bold text-2xl py-4 text-purple-500">
+                    UPDATE VISA
                   </h1>
 
                   {/* Modal Form */}
                   <form onSubmit={handleUpdateVisa} className="mt-6 space-y-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                       {/* Country Image */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Country Image
                           </span>
                         </label>
@@ -198,7 +191,7 @@ const MyAddedVisa = () => {
                           type="text"
                           defaultValue={selectedVisa.country_image}
                           placeholder="Country image"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
@@ -206,7 +199,7 @@ const MyAddedVisa = () => {
                       {/* Country Name */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Country Name
                           </span>
                         </label>
@@ -215,37 +208,37 @@ const MyAddedVisa = () => {
                           type="text"
                           defaultValue={selectedVisa.country_name}
                           placeholder="Country name"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                         />
                       </div>
 
                       {/* Visa Type */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className="text-xl font-bold">
                             Visa Type
                           </span>
                         </label>
                         <select
                           name="visatype"
                           defaultValue={selectedVisa.visa_type}
-                          className="p-3 rounded-lg border-2 w-full"
+                          className="p-3  border border-purple-500 bg-transparent w-full"
                         >
-                          <option value="" disabled selected>
+                          <option className="text-black bg-purple-500/20" value="" disabled selected>
                             Select Visa Type
                           </option>
-                          <option value="Tourist">Tourist</option>
-                          <option value="Student">Student</option>
-                          <option value="Medical">Medical</option>
-                          <option value="Business">Business</option>
-                          <option value="Work">Work</option>
+                          <option className="text-black bg-purple-500/20" value="Tourist">Tourist</option>
+                          <option className="text-black bg-purple-500/20" value="Student">Student</option>
+                          <option className="text-black bg-purple-500/20" value="Medical">Medical</option>
+                          <option className="text-black bg-purple-500/20" value="Business">Business</option>
+                          <option className="text-black bg-purple-500/20" value="Work">Work</option>
                         </select>
                       </div>
 
                       {/* Processing Time */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Processing Time
                           </span>
                         </label>
@@ -254,7 +247,7 @@ const MyAddedVisa = () => {
                           type="text"
                           defaultValue={selectedVisa.processingtime}
                           placeholder="Processing time"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
@@ -262,7 +255,7 @@ const MyAddedVisa = () => {
                       {/* Required Documents */}
                       <div className="form-control sm:col-span-2">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Required Documents
                           </span>
                         </label>
@@ -303,7 +296,7 @@ const MyAddedVisa = () => {
                       {/* Description */}
                       <div className="form-control sm:col-span-2">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Description
                           </span>
                         </label>
@@ -311,7 +304,7 @@ const MyAddedVisa = () => {
                           name="description"
                           defaultValue={selectedVisa.description}
                           placeholder="Description"
-                          className="textarea textarea-bordered w-full"
+                          className="textarea textarea-bordered bg-transparent border border-y-purple-500 rounded-none w-full"
                           required
                         ></textarea>
                       </div>
@@ -319,7 +312,7 @@ const MyAddedVisa = () => {
                       {/* Age Restriction */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Age Restriction
                           </span>
                         </label>
@@ -328,7 +321,7 @@ const MyAddedVisa = () => {
                           type="number"
                           defaultValue={selectedVisa.age_restriction}
                           placeholder="Minimum Age"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
@@ -336,7 +329,7 @@ const MyAddedVisa = () => {
                       {/* Fee */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Fee
                           </span>
                         </label>
@@ -345,7 +338,7 @@ const MyAddedVisa = () => {
                           type="number"
                           defaultValue={selectedVisa.fee}
                           placeholder="Fee"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
@@ -353,7 +346,7 @@ const MyAddedVisa = () => {
                       {/* Validity */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Validity
                           </span>
                         </label>
@@ -362,7 +355,7 @@ const MyAddedVisa = () => {
                           type="text"
                           defaultValue={selectedVisa.validity}
                           placeholder="Validity (e.g., 6 months)"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
@@ -370,7 +363,7 @@ const MyAddedVisa = () => {
                       {/* Application Method */}
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text text-xl font-bold">
+                          <span className=" text-xl font-bold">
                             Application Method
                           </span>
                         </label>
@@ -379,18 +372,18 @@ const MyAddedVisa = () => {
                           type="text"
                           defaultValue={selectedVisa.application_method}
                           placeholder="Explain how to apply"
-                          className="input input-bordered w-full"
+                          className="input border border-purple-500 rounded-none bg-transparent w-full"
                           required
                         />
                       </div>
                     </div>
 
                     {/* Modal Actions */}
-                    <div className="flex justify-center gap-4 mt-6">
+                    <div className="flex justify-center gap-4 mt-10">
 
-                      <button type="submit"  className="btn border-none w-[40%]  my-5 hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white"> Submit </button>
+                      <button type="submit"  className="btn btn-outline btn-success rounded-none  w-[30%]"> Submit </button>
 
-                      <button type="button" onClick={handleModalClose} className="btn border-none w-[40%]  my-5 hover:border-none bg-[#ff2f2f] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold text-white hover:text-black" > Close </button>
+                      <button type="button" onClick={handleModalClose} className="btn btn-outline btn-error rounded-none  w-[30%]" > Close </button>
 
                     </div>
                   </form>

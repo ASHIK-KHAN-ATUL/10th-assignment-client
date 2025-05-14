@@ -131,27 +131,27 @@ const VisaDetails = () => {
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>Email :</p>
-                            <input type="text" name="email" defaultValue={user.email} placeholder='Enter your email' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                            <input type="text" name="email" defaultValue={user.email} placeholder='Enter your email' id="" className='w-full font-semibold p-2  border border-purple-500   bg-transparent rounded-none' />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>First Name :</p>
-                            <input type="text" name="firstname"  placeholder='Enter Your First Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' required />
+                            <input type="text" name="firstname"  placeholder='Enter Your First Name' id="" className='w-full font-semibold p-2  border border-purple-500   bg-transparent rounded-none' required />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>Last Name :</p>
-                            <input type="text" name="lastname"  placeholder='Enter Your Last Name' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' required />
+                            <input type="text" name="lastname"  placeholder='Enter Your Last Name' id="" className='w-full font-semibold p-2  border border-purple-500   bg-transparent rounded-none' required />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>Appied Date :</p>
-                            <input type="text" name="date" defaultValue={new Date().toISOString().split("T")[0]} placeholder='' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                            <input type="text" name="date" defaultValue={new Date().toISOString().split("T")[0]} placeholder='' id="" className='w-full font-semibold p-2  border border-purple-500   bg-transparent rounded-none' />
                         </div>
 
                         <div className='flex gap-5 w-full items-center'>
                             <p className='w-[40%] text-lg font-bold'>Fee :</p>
-                            <input type="text" name="fee" defaultValue={fee} placeholder='Enter Visa Fee' id="" className='w-full font-semibold p-2 rounded-lg shadow-md' />
+                            <input type="text" name="fee" defaultValue={fee} placeholder='Enter Visa Fee' id="" className='w-full font-semibold p-2  border border-purple-500   bg-transparent rounded-none' />
                         </div>
                         <div className="mt-6 flex gap-10 justify-center">
                             <button  type='submit'
