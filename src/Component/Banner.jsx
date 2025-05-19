@@ -1,42 +1,31 @@
 
-import banner2 from "../assets/banner2.jpg";
-import banner3 from "../assets/banner3.jpg";
-import banner4 from "../assets/banner4.jpg";
+import banner5 from "../assets/banner5 (1).png"
+import banner6 from "../assets/banner6.png"
 
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Banner = () => {
 
 
 
   return (
-<div className="carousel mx-auto lg:w-[70%] md:h-96 lg:h-[420px] 2xl:h-[600px] rounded-lg my-10">
-            <div id="slide1" className="carousel-item relative w-full">
-                <img
-                src={banner2}
-                className=" w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide3" className="btn btn-circle">❮</a>
-                <a href="#slide2" className="btn btn-circle">❯</a>
+        <div className="">
+            <Carousel
+                showArrows={true}
+                autoPlay={true}
+                infiniteLoop={true}
+                showThumbs={true}
+                showStatus={false}
+                interval={4000}
+            >
+                <div>
+                    <img src={banner6} className="max-h-[600px] object-cover"  alt="Banner 2" />
                 </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img
-                src={banner3}
-                className=" w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide1" className="btn btn-circle">❮</a>
-                <a href="#slide3" className="btn btn-circle">❯</a>
+                <div>
+                    <img src={banner5} className="max-h-[600px] object-cover"  alt="Banner 3" />
                 </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img
-                src={banner4}
-                className=" w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide2" className="btn btn-circle">❮</a>
-                <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
-            </div>
+            </Carousel>
         </div>
   );
 };

@@ -11,6 +11,9 @@ import Error from "../Component/Error";
 import MyAddedVisa from "../Page/MyAddedVisa";
 import MyVisaApplication from "../Page/MyVisaApplication";
 import ReviewSection from "../Component/ReviewSection";
+import Dashboard from "../Layout/Dashboard";
+import Profile from "../Page/Dashboard/Profile";
+import OverView from "../Page/Dashboard/OverView";
 
 
 const Router = createBrowserRouter([
@@ -60,6 +63,20 @@ const Router = createBrowserRouter([
             {
                 path:'/giveReview',
                 element: <ReviewSection></ReviewSection>
+            }
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
+        children: [
+            {
+                path:'profile',
+                element: <Profile></Profile>
+            },
+            {
+                path:'overview',
+                element: <OverView></OverView>
             }
         ]
     }

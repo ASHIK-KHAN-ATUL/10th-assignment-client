@@ -74,9 +74,9 @@ const VisaDetails = () => {
     // console.log(visa);
 
     return (
-        <div>
+        <div className='bg-black/90 py-20'>
 
-        <div className='  bg-purple-500/10  border border-purple-400  w-[70%] md:w-[60%] mx-auto my-14 p-5 rounded-lg flex flex-col gap-5 max-w-[720px] shadow-lgduration-300'>
+        <div className=' bg-purple-500/10  border border-purple-400  w-[90%] md:w-[60%] mx-auto  p-5 rounded-lg flex flex-col gap-5 max-w-[720px] shadow-lgduration-300'>
             {/* for image */}
             <div className='w-full'>
                 <img className='object-cover mx-auto ' src={country_image} alt="" />

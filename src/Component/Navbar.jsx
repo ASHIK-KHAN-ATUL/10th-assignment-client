@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from '../Providers/AuthProvider';
 
 
@@ -7,13 +7,18 @@ const Navbar = () => {
 
     const {user, logout} = useContext(AuthContext);
     const [isHover, setIsHover] = useState(false);
+    const location = useLocation();
+    const [dropdown, setDropdown] = useState(false)
 
     const links = <>
-                    <li> <NavLink to="/" >Home</NavLink> </li>
-                    <li> <NavLink to="/allvisa" >All Visas</NavLink> </li> 
-                    <li> <NavLink to="/addvisa" >Add Visa</NavLink></li>
-                    <li> <NavLink to="/myaddedvisa" >My Added Visas</NavLink> </li>
-                    <li> <NavLink to="/myvisaapplication" >My Visa Applications </NavLink> </li>
+                    <li> <NavLink to="/" onClick={()=>setDropdown(false)}>Home</NavLink> </li>
+                    <li> <NavLink to="/allvisa" onClick={()=>setDropdown(false)}>All Visas</NavLink> </li> 
+                    <li> <NavLink to="/addvisa" onClick={()=>setDropdown(false)}>Add Visa</NavLink></li>
+                    <li> <NavLink to="/myaddedvisa" onClick={()=>setDropdown(false)} >My Added Visas</NavLink> </li>
+                    <li> <NavLink to="/myvisaapplication" onClick={()=>setDropdown(false)}>My Visa Applications </NavLink> </li>
+                    {
+                        user?.email && <li> <NavLink to="/dashboard/profile" onClick={()=>setDropdown(false)} >Dashboard</NavLink> </li>
+                    }
 
                 </>
 
@@ -22,12 +27,17 @@ const Navbar = () => {
 
                 <div className="navbar-start">
                     <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
+                            <div onClick={()=>setDropdown(!dropdown)} role="button" className="btn btn-ghost  lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"  d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content  bg-black border border-purple-500 text-purple-500 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl" >{links}</ul>
+                            <ul  tabIndex={0} className={`menu menu-sm ${dropdown ? '' : 'hidden'} absolute bg-black border border-purple-500 text-purple-500 rounded-box z-[1]  w-52 p-2 pt-7 shadow-xl`} onMouseLeave={() => setDropdown(false)} >
+                                {links}
+                                <span onClick={()=>setDropdown(!dropdown)} className='absolute text-lg  rounded-full h-5 w-5 bg-red-600 flex justify-center items-center top-1 right-1 hover:cursor-pointer'>
+                                <p className='pb-1 text-white'>x</p>
+                            </span>
+                            </ul>
                     </div>
                     {/* <p className=" font-bold text-base md:text-xl md:font-extrabold xl:text-3xl ">VISA NAVIGATOR</p> */}
                     <img src="../../public/icons8-visa-500.png" className='w-12' alt="" />
@@ -43,7 +53,7 @@ const Navbar = () => {
                         <div className='flex items-center gap-2 relative cursor-pointer' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                             {/* Profile pic */}
                             <div className='flex items-center'>
-                                <div className='h-12 w-12 xl:w-16 xl:h-16 rounded-full border-2 border-purple-500'>
+                                <div className='h-12 w-12  rounded-full border-2 border-purple-500'>
                                     <img className='object-cover rounded-full' src={user.photoURL} alt="Profile Pic" />
                                 </div>
                             </div>
@@ -55,8 +65,8 @@ const Navbar = () => {
                                         <img src={user.photoURL} className='h-16 w-16 mx-auto rounded-full border-2 border-[#023e8a]'  alt="Profile pic" />
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>Name : {user.displayName}</p>
                                         <p className='mt-2 text-[10px] md:text-base font-medium text-start'>email : {user.email}</p>
-                                        <p className='mt-2 text-[8px] md:text-sm font-medium text-start'>Last Sign In : {user.metadata.lastSignInTime}</p>
-                                        <Link onClick={logout} className='btn btn-outline rounded-none btn-error text-white mt-2 hover:scale-x-125 '>Logout</Link>
+                                        <p className='mt-2 text-[8px] md:text-sm font-medium text-start'>Last Sign In : {new Date(user.metadata.lastSignInTime).toLocaleDateString()}</p>
+                                        <Link onClick={logout} className='btn btn-outline rounded-none btn-error btn-md text-white mt-2 hover:scale-x-125 '>Logout</Link>
                                     </div>
                                 </div>
                             )}
@@ -65,8 +75,12 @@ const Navbar = () => {
                         :
 
                     <div className=' flex gap-4'>
-                        <NavLink to={'/login'} className='btn border-none hover:border-none bg-[#74c69d] hover:bg-[#6cddf1] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white'>Login</NavLink>
-                        <NavLink to={'/register'} className='btn border-none hover:border-none bg-[#6cddf1] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold hover:text-white'>register</NavLink>
+                        {
+                            location.pathname === '/register' ? 
+
+                            (<NavLink to={'/login'} className='btn btn-outline btn-success rounded-none btn-sm'>Login</NavLink>) : 
+                            (<NavLink to={'/register'} className='btn btn-outline btn-success rounded-none btn-sm'>register</NavLink>)
+                        }
                     </div>
                     }
                 </div>

@@ -33,7 +33,7 @@ const HowItWorks = () => {
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="bg-purple-500/10  border border-purple-400  duration-500 cursor-pointer  p-6 rounded-lg text-center shadow-xl"
+            className="bg-purple-500/10  border-b border-x border-purple-400  duration-500 cursor-pointer  p-6 rounded-lg text-center shadow-xl"
           >
             <div className='flex justify-center'>
                 <img className='h-14 bg-transparent'  src={step.icon} alt="" />

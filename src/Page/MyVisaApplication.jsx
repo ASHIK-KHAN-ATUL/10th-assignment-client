@@ -53,13 +53,13 @@ const MyVisaApplication = () => {
     } ,[])
 
     return (
-        <div className='my-20'>
+        <div className='py-20 bg-black/90 min-h-screen'>
             
-            <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 2xl:grid-cols-4 '>
+            <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 2xl:grid-cols-4 gap-10 mx-5'>
                 {
                 appliedVisa.map(applyVisa => 
 
-                <div className='w-[350px] mx-auto border-2 border-green-200 hover:border-red-200 bg-[#f8edeb] bg-opacity-50  shadow-xl shadow-[#b7e4c7] hover:shadow-red-200 scale-90  duration-300  flex-col  cursor-pointer ' >
+                <div className=' bg-purple-500/10  border border-purple-400  shadow-xl rounded-md w-80 mx-auto  flex flex-col justify-evenly ' >
 
                     {/* img */}
                     <div className='mb-5'>
@@ -67,56 +67,53 @@ const MyVisaApplication = () => {
                     </div>
 
                     {/* text */}
-                    <div className='p-5 flex flex-col space-y-3 grow'>
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Country Name :</p>
-                                <p className='text-base font-semibold'>{applyVisa.country_name}</p>
+                    <div className='p-5 flex flex-col space-y-1 grow'>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Country Name :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.country_name}</p>
                             </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Visa Type :</p>
-                                <p className='text-base font-semibold'>{applyVisa.visa_type}</p>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Visa Type :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.visa_type}</p>
                             </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Processing Time :</p>
-                                <p className='text-base font-semibold'>{applyVisa.processingtime}</p>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Processing Time :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.processingtime}</p>
                             </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Fee :</p>
-                                <p className='text-base font-semibold'>{applyVisa.fee}</p>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Fee :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.fee}</p>
                             </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Validity :</p>
-                                <p className='text-base font-semibold'>{applyVisa.validity}</p>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Validity :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.validity}</p>
                             </span>
 
-                            <span className='flex gap-4 items-start py-3'>
-                                <p className='text-base font-bold flex items-start'>Application Method :</p>
-                                <p className='text-base font-semibold'>{applyVisa.application_method}</p>
-                            </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Applied Date :</p>
-                                <p className='text-base font-semibold'>{applyVisa.date
+
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Applied Date :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.date
                                 }</p>
                             </span>
 
-                            <span className='flex gap-4 items-center'>
-                                <p className='text-lg font-bold'>Applicant's Name :</p>
-                                <p className='text-base font-semibold'>{applyVisa.firstName} {applyVisa.lastName}</p>
+                            <span className='flex gap-2 items-center'>
+                                <p className='text-base font-bold'>Applicant's Name :</p>
+                                <p className='text-sm font-semibold'>{applyVisa.firstName} {applyVisa.lastName}</p>
                             </span>
 
-                            <span className='flex gap-4 items-start py-3'>
-                                <p className='text-base font-bold flex items-start'>Applicant's Email :</p>
+                            <span className='flex gap-2 items-start py-3'>
+                                <p className='text-sm font-bold flex items-start'>Applicant's Email :</p>
                                 <p className='text-sm font-semibold'>{applyVisa.userEmail}</p>
                             </span>
                     </div>
 
                     <div className="flex justify-center mt-auto pb-5">
-                    <button onClick={() => handleCancel(applyVisa._id)} className="btn border-none w-[80%] mx-auto  my-5 hover:border-none bg-[#ff2f2f] hover:bg-[#74c69d] transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold text-white hover:text-black">Cancel</button>
+                    <button onClick={() => handleCancel(applyVisa._id)} className="btn btn-outline btn-error rounded-none  w-[70%]">Cancel</button>
                     </div>
 
                 </div>

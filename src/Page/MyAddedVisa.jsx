@@ -120,7 +120,7 @@ const MyAddedVisa = () => {
 
 
   return (
-    <div className="my-20  mx-auto ">
+    <div className="py-20 bg-black/90 mx-auto ">
       <h2 className="text-start text-3xl font-bold mb-5 mx-[5%]">
         My Added Visas 
       </h2>

@@ -48,7 +48,7 @@ const ReviewSection = () => {
 
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center bg-black/90">
 
       {/* Review Form */}
       <div className="review-form bg-purple-500/20 border border-purple-500 shadow-md p-6  w-full max-w-lg mx-auto rounded-none">

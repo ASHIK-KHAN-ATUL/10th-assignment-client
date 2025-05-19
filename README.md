@@ -1,37 +1,45 @@
-Visa Navigator
-Live Site: ashik-khan-atul-assignment-10th.surge.sh
+# Visa Navigator 🌍
 
-Features
-Easy Visa Application Process: Simplify the visa application process by browsing available visa options and applying directly through the platform.
-User Authentication: Secure login and registration with email or Google authentication.
-Visa Management: Add, update, and delete visa information, view visa details, and manage visa applications.
-Real-time Tracking: Track your visa application status and stay updated on progress.
-Responsive Design: Fully responsive design for desktop, tablet, and mobile views.
-How It Works
-Step 1: Create an Account
-Sign up with your email to access the visa application platform.
+A simple Visa Navigator Portal to check visa requirements, apply online, and track applications.
 
-Go to the Register page.
-Enter your Name, Email, Photo URL, and Password.
-Click Register to create your account.
-Step 2: Explore Visa Options
-Browse through various visa options and choose the one that suits you best.
+**Live Site:** [ashik-khan-atul-assignment-10th.surge.sh](https://ashik-khan-atul-assignment-10th.surge.sh)  
+**Client Repo:** [10th-assignment-client](https://github.com/ASHIK-KHAN-ATUL/10th-assignment-client)  
+**Server Repo:** [10th-assignment-server](https://github.com/ASHIK-KHAN-ATUL/10th-assignment-server)  
 
-On the Home Page, view the latest visa options.
-Click on See Details for more information about a specific visa.
-Step 3: Apply for Visa
-Fill out the application form and submit the necessary documents.
+---
 
-After selecting a visa, click Apply for Visa.
-Fill in the required information (First Name, Last Name, Email, etc.) and submit.
-Step 4: Track Application
-Stay updated on your application status in real-time.
+## Features
 
-View the status of your application in the My Visa Applications section.
-Cancel or update your application if necessary.
-Technologies Used
-Frontend: React, Tailwind CSS
-Backend: Node.js, Express.js
-Database: MongoDB
-Authentication: Firebase Authentication (Google Sign-In)
-Hosting: Surge (Client-side), Vercel (Server-side)
+- Firebase Authentication (Email/Password + Google Login)  
+- Add, Update, Delete visas (only by creator)  
+- Apply for visas with a form  
+- View my added visas & my applications  
+- Protected routes & redirects  
+- Responsive design  
+- Toast/SweetAlert notifications  
+- 404 page & loading spinner  
+
+---
+
+## Tech Stack
+
+- React.js  
+- Firebase Auth  
+- Node.js + Express  
+- MongoDB  
+- Surge (client deploy)  
+- Vercel (server deploy)  
+
+---
+
+## Setup
+
+1. Clone repos  
+2. Run `npm install`  
+3. Add Firebase & MongoDB keys to `.env` files  
+4. Run `npm run dev` (client) and `npm start` (server)  
+
+---
+
+
+© 2025 Visa Navigator

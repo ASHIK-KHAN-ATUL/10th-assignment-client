@@ -52,7 +52,8 @@ const AddVisa = () => {
     }
 
     return (
-        <div className="bg-purple-500/10 my-32 mx-[5%] border border-purple-500">
+        <div className="bg-black/90 py-20">
+            <div className="bg-purple-500/10  mx-[5%] border border-purple-500">
             <h1 className="text-center font-bold text-3xl pt-10 text-purple-500">Add New Visa</h1>
             <form onSubmit={handleAddVisa}  className="card-body p-10 font-semibold">
 
@@ -183,6 +184,7 @@ const AddVisa = () => {
                     <button className="btn btn-outline btn-success rounded-none mx-auto w-1/2  ">Add Visa</button>
                 </div>
             </form>
+        </div>
         </div>
     );
 };
