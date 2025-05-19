@@ -53,12 +53,12 @@ const ShowReview = () => {
                     {
                         reviews.map((review, index) => 
                         <SwiperSlide key={index}>
-                            <div className='bg-purple-500/10 border border-purple-500 p-10 flex flex-col justify-center items-center mx-10 gap-4'>
+                            <div className='bg-purple-500/10 border border-purple-500 p-10 flex flex-col justify-evenly items-center mx-10 gap-4 h-[250px]'>
                                 <div>
                                   <img src={review.photo} className='h-16 rounded-full border border-purple-500' alt={review.name} />
                                 </div>
                                 <p className='text-orange-400'>{review.ratingNumber} / 10</p>
-                                <p>{review.comment}</p>
+                                <p className='overflow-y-auto'>{review.comment}</p>
                             </div>
                         </SwiperSlide>)
                     }

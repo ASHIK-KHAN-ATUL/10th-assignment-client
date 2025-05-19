@@ -6,6 +6,7 @@ import ReviewSection from '../Component/ReviewSection';
 import ShowReview from '../Component/ShowReview';
 import WhyChooseUs from '../Component/WhyChooseUs';
 import NewsLetter from '../Component/NewsLetter';
+import ContactSupport from '../Component/ContactSupport';
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
             <HowItWorks></HowItWorks>
             <WhyChooseUs></WhyChooseUs>
             <ShowReview></ShowReview>
+            <ContactSupport></ContactSupport>
             <NewsLetter></NewsLetter>
         </div>
     );
